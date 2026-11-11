@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://i7p0amqeq20g"]
 
 [ext_resource type="Texture2D" uid="uid://bev2qb0ved0up" path="res://icon.svg" id="1_7by1v"]
+[ext_resource type="Script" uid="uid://to0xn5shcvd3" path="res://GameContent/Scripts/collectable_spawner.gd" id="3_8b6ow"]
 [ext_resource type="PackedScene" uid="uid://cjoj5ecra1wrp" path="res://GameContent/Scenes/Entities/player.tscn" id="3_v34lu"]
 
 [node name="Game" type="Node2D" unique_id=141875500]
@@ -25,3 +26,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." unique_id=974397795 instance=ExtResource("3_v34lu")]
 position = Vector2(966, 544)
+
+[node name="InstanceHolder" type="Node" parent="." unique_id=1714505040]
+script = ExtResource("3_8b6ow")
