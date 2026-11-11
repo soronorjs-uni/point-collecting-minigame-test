@@ -6,5 +6,5 @@
 [node name="GameController" type="Node" unique_id=889076977]
 script = ExtResource("1_nrvs4")
 
-[node name="SceneManager" type="Node" parent="." unique_id=1858466978]
+[node name="SceneManager" type="Node2D" parent="." unique_id=634573039]
 script = ExtResource("2_d5eyr")

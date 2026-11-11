@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://i7p0amqeq20g"]
+
+[ext_resource type="Texture2D" uid="uid://bev2qb0ved0up" path="res://icon.svg" id="1_7by1v"]
+[ext_resource type="Script" uid="uid://bv2a58q588qdg" path="res://GameContent/Scenes/main_cam.gd" id="1_nqkli"]
+[ext_resource type="Script" uid="uid://cl1cs1ogoukuk" path="res://GameContent/Scenes/character_body_2d.gd" id="3_v34lu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v34lu"]
+size = Vector2(128, 128)
+
+[node name="Game" type="Node2D" unique_id=141875500]
+
+[node name="MainCam" type="Camera2D" parent="." unique_id=1260158978]
+position_smoothing_enabled = true
+script = ExtResource("1_nqkli")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=2095720515]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(1920, 1030)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=1361532852]
+modulate = Color(0.58707833, 0.58707833, 0.58707833, 1)
+anchors_preset = -1
+offset_left = 9.0
+offset_top = -25.0
+offset_right = 1929.0
+offset_bottom = 1055.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7by1v")
+expand_mode = 2
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=797674934]
+script = ExtResource("3_v34lu")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=338695755]
+texture = ExtResource("1_7by1v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1957046947]
+shape = SubResource("RectangleShape2D_v34lu")
+disabled = true
