@@ -14,6 +14,13 @@ config/name="point collecting minigame"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameController="*uid://ca1l6hhoi5aed"
+SceneManager="*uid://4ubilv4dkwwp"
+GlobalConfigs="*uid://nlvclovm5r7"
+GlobalStats="*uid://cqtq6o084yki0"
+
 [display]
 
 window/stretch/mode="canvas_items"

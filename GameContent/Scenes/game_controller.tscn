@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://crsbvtn2vmxw2"]
+
+[ext_resource type="Script" uid="uid://ca1l6hhoi5aed" path="res://GameContent/GlobalScripts/game_controller.gd" id="1_nrvs4"]
+[ext_resource type="Script" uid="uid://4ubilv4dkwwp" path="res://GameContent/GlobalScripts/scene_manager.gd" id="2_d5eyr"]
+
+[node name="GameController" type="Node" unique_id=889076977]
+script = ExtResource("1_nrvs4")
+
+[node name="SceneManager" type="Node" parent="." unique_id=1858466978]
+script = ExtResource("2_d5eyr")
