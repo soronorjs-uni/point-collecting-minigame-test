@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cl1cs1ogoukuk" path="res://GameContent/Scripts/Player/player_movement.gd" id="1_ado7o"]
 [ext_resource type="Texture2D" uid="uid://bev2qb0ved0up" path="res://icon.svg" id="1_vt8kt"]
+[ext_resource type="PackedScene" uid="uid://byr4qyrr7inyt" path="res://GameContent/Scenes/UI/HUD.tscn" id="2_ado7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(128, 129)
@@ -10,6 +11,8 @@ size = Vector2(128, 129)
 collision_mask = 0
 script = ExtResource("1_ado7o")
 DASH_SPEED = 5000.0
+
+[node name="HUD" parent="." unique_id=1276797696 instance=ExtResource("2_ado7o")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=312984403]
 position = Vector2(0, -464)
