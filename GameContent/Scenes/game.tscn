@@ -24,3 +24,4 @@ stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." unique_id=974397795 instance=ExtResource("3_v34lu")]
+position = Vector2(966, 544)
