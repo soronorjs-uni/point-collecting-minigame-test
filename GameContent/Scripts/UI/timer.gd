@@ -14,5 +14,3 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	GameController.game_over.emit()
-	$"../../RestartButton/Button".visible = true
-	get_tree().paused = true

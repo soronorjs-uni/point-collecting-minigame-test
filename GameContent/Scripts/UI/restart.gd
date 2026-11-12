@@ -1,6 +1,6 @@
 extends Panel
 
-func ready():
+func _process(delta: float) -> void:
 	GameController.game_over.connect(display)
 
 func display():

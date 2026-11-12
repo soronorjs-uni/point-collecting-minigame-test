@@ -8,4 +8,4 @@ func spawn_collectible():
 	randomCollectible.position = Vector2i(randi_range(100, get_viewport().get_visible_rect().size.x - 100), -600)
 	$".".get_parent().add_child(randomCollectible)
 	
-	spawnTimer.start(1)
+	spawnTimer.start(randi_range(1, 2))

@@ -13,6 +13,8 @@ func _ready():
 
 func update_score(score: int):
 	GameController.update_score.emit(score, required_score)
+	if score >= required_score:
+		GameController.game_over.emit()
 
 func start_timer():
 	timer.start(level_time)
