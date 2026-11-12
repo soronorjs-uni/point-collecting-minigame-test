@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameController="*uid://ca1l6hhoi5aed"
-SceneManager="*uid://4ubilv4dkwwp"
 Enum="*uid://cwm1whr2jqt7a"
 FileUtility="*uid://b3t02x1w1ytky"
 
