@@ -4,43 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bev2qb0ved0up" path="res://icon.svg" id="1_vt8kt"]
 [ext_resource type="PackedScene" uid="uid://byr4qyrr7inyt" path="res://GameContent/Scenes/UI/HUD.tscn" id="2_ado7o"]
 [ext_resource type="Script" uid="uid://d2glduievxe2j" path="res://GameContent/Scripts/camera.gd" id="3_pncag"]
-
-[sub_resource type="VisualShaderNodeUVPolarCoord" id="VisualShaderNodeUVPolarCoord_3rc57"]
-output_port_for_preview = 0
-
-[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_y488f"]
-input_name = "screen_uv"
-
-[sub_resource type="Gradient" id="Gradient_ks6r5"]
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ifjf5"]
-gradient = SubResource("Gradient_ks6r5")
-fill = 1
-fill_from = Vector2(0.5179856, 0.5083933)
-fill_to = Vector2(0.99040765, 0)
-
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_prbje"]
-texture = SubResource("GradientTexture2D_ifjf5")
-
-[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_3rc57"]
-default_input_values = [0, Quaternion(0, 0, 0, 0)]
-op_type = 2
-
-[sub_resource type="VisualShader" id="VisualShader_ifjf5"]
-nodes/fragment/3/node = SubResource("VisualShaderNodeUVPolarCoord_3rc57")
-nodes/fragment/3/position = Vector2(-840, 190)
-nodes/fragment/4/node = SubResource("VisualShaderNodeInput_y488f")
-nodes/fragment/4/position = Vector2(-1200, 230)
-nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_prbje")
-nodes/fragment/5/position = Vector2(-490, 260)
-nodes/fragment/6/node = SubResource("VisualShaderNodeVectorDecompose_3rc57")
-nodes/fragment/6/position = Vector2(-200, 430)
-nodes/fragment/connections = PackedInt32Array(4, 0, 3, 0, 3, 0, 5, 0, 5, 0, 6, 0, 6, 3, 0, 1, 5, 0, 0, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4n8t5"]
-render_priority = 0
-shader = SubResource("VisualShader_ifjf5")
+[ext_resource type="Shader" uid="uid://d1edtscgmskxf" path="res://GameContent/Shaders/new_visual_shader.tres" id="4_4n8t5"]
 
 [sub_resource type="Gradient" id="Gradient_vkghc"]
 offsets = PackedFloat32Array(0.4982699, 1)
@@ -76,6 +40,9 @@ nodes/fragment/connections = PackedInt32Array(4, 0, 2, 0, 2, 0, 5, 0, 5, 0, 0, 0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7hyq1"]
 shader = SubResource("VisualShader_4n8t5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pncag"]
+shader = ExtResource("4_4n8t5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(128, 129)
@@ -135,8 +102,14 @@ _data = {
 &"walk_loop": SubResource("Animation_ifjf5")
 }
 
+[sub_resource type="Curve" id="Curve_57qmd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_g4v7s"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Player" type="CharacterBody2D" unique_id=974397795]
-material = SubResource("ShaderMaterial_4n8t5")
 collision_mask = 0
 script = ExtResource("1_ado7o")
 SPEED = 800.0
@@ -157,6 +130,7 @@ drag_vertical_enabled = true
 script = ExtResource("3_pncag")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2119857949]
+material = SubResource("ShaderMaterial_pncag")
 texture = ExtResource("1_vt8kt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1541332239]
@@ -164,3 +138,11 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=446253716]
 libraries/ = SubResource("AnimationLibrary_ifjf5")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=926476880]
+top_level = true
+z_index = -1
+width = 100.0
+width_curve = SubResource("Curve_57qmd")
+gradient = SubResource("Gradient_g4v7s")
+end_cap_mode = 2
