@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 var dash_tween: Tween
 var dash_velocity := 0.0
+var dashing = false
 @export var dashing_available := true
 
 @onready var animationPlayer = $AnimationPlayer
@@ -16,18 +17,24 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("dash"):
 		if dashing_available:
 			$Camera2D.shake_strength = 10.0
+			animationPlayer.current_animation = "dash"
 			animationPlayer.play("dash")
 			dash_velocity = DASH_SPEED
 			if dash_tween:
 				dash_tween.stop()
 			dash_tween = create_tween()
 			dash_tween.tween_property(self, "dash_velocity", 0, 0.3).set_ease(Tween.EASE_OUT)
-			#dashing_available = false
+			dashing_available = false
 
 	if direction:
+		if !animationPlayer.current_animation == "dash":
+			animationPlayer.play("walk_loop")
 		velocity.x = direction * (SPEED + dash_velocity)
 	else:
+		animationPlayer.stop()
 		velocity.x = move_toward(velocity.x, 0.0, SPEED)
+
+
 
 	move_and_slide()
 	
