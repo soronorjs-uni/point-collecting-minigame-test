@@ -34,5 +34,6 @@ func _physics_process(delta: float) -> void:
 func powerup(powerupType: Enum.POWERUP):
 	if powerupType == Enum.POWERUP.DASH:
 		dashing_available = true
+		GameController.powerup_dash.emit()
 	else:
 		pass

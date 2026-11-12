@@ -1,13 +1,70 @@
 [gd_scene format=3 uid="uid://byr4qyrr7inyt"]
 
 [ext_resource type="Script" uid="uid://b5j11kmyerjja" path="res://GameContent/Scripts/UI/score.gd" id="1_hlfmi"]
+[ext_resource type="Script" uid="uid://cwulaqushxd45" path="res://GameContent/Scripts/UI/vignette_fx.gd" id="1_ktx4a"]
 [ext_resource type="Script" uid="uid://170t2yr388ml" path="res://GameContent/Scripts/UI/timer.gd" id="2_wao25"]
 [ext_resource type="Script" uid="uid://0bmgmfre5p13" path="res://GameContent/Scripts/Start.gd" id="3_hyucr"]
 [ext_resource type="Script" uid="uid://bsjp42ajy05w4" path="res://GameContent/Scripts/UI/restart.gd" id="4_w2uii"]
 
+[sub_resource type="Gradient" id="Gradient_ktx4a"]
+offsets = PackedFloat32Array(0.63369966, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.37254903)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hqwr1"]
+gradient = SubResource("Gradient_ktx4a")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(2, 0)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8b6ow"]
 
+[sub_resource type="Animation" id="Animation_ktx4a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vignette:texture:fill_to")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hqwr1"]
+resource_name = "vignette"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vignette:texture:fill_to")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 0), Vector2(1, 0), Vector2(2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dsr8d"]
+_data = {
+&"RESET": SubResource("Animation_ktx4a"),
+&"vignette": SubResource("Animation_hqwr1")
+}
+
 [node name="HUD" type="CanvasLayer" unique_id=1276797696]
+
+[node name="Vignette" type="TextureRect" parent="." unique_id=1330825092]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_hqwr1")
+script = ExtResource("1_ktx4a")
 
 [node name="Layout" type="BoxContainer" parent="." unique_id=821514641]
 anchors_preset = 15
@@ -75,5 +132,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 100
 text = "Restart"
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2086404898]
+libraries/ = SubResource("AnimationLibrary_dsr8d")
 
 [connection signal="pressed" from="RestartButton/Button" to="RestartButton" method="_on_pressed"]
