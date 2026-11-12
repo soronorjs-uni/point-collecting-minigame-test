@@ -5,6 +5,6 @@ extends RigidBody2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		GameController.update_score.emit(pointAmount)
+		GameController.current_score += pointAmount
 		body.powerup(powerupType)
 		$".".queue_free()

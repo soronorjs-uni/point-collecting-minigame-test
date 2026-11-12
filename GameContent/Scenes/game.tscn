@@ -36,7 +36,8 @@ script = ExtResource("3_8b6ow")
 
 [node name="Collectable" parent="InstanceHolder" unique_id=1346826100 instance=ExtResource("5_s1nlh")]
 position = Vector2(960, -382)
-collision_layer = 1
-contact_monitor = false
+collision_mask = 1
 max_contacts_reported = 0
 constant_force = Vector2(0, 100)
+
+[connection signal="body_entered" from="InstanceHolder/Collectable" to="InstanceHolder/Collectable" method="_on_body_entered"]
