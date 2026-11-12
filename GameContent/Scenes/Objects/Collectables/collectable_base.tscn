@@ -4,9 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://bev2qb0ved0up" path="res://icon.svg" id="1_igwj3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(64, 64)
+size = Vector2(70, 70)
 
-[node name="Collectable" type="Area2D" unique_id=1346826100]
+[node name="Collectable" type="RigidBody2D" unique_id=1832340993]
+collision_mask = 0
+lock_rotation = true
+max_contacts_reported = 5
 script = ExtResource("1_fx02j")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1091172272]
@@ -16,3 +19,11 @@ texture = ExtResource("1_igwj3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1777644734]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=908547874]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1919058775]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

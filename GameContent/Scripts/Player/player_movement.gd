@@ -13,12 +13,12 @@ func _physics_process(delta: float) -> void:
 	# Burst Velocity
 	if Input.is_action_just_pressed("dash"):
 		if dashing_available:
-			dashing_available = false
 			dash_velocity = DASH_SPEED
 			if dash_tween:
 				dash_tween.stop()
 			dash_tween = create_tween()
 			dash_tween.tween_property(self, "dash_velocity", 0, 0.3).set_ease(Tween.EASE_OUT)
+			dashing_available = false
 
 	if direction:
 		velocity.x = direction * (SPEED + dash_velocity)
@@ -26,3 +26,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0.0, SPEED)
 
 	move_and_slide()
+	
+func powerup(powerupType: Enum.POWERUP):
+	if powerupType == Enum.POWERUP.DASH:
+		dashing_available = true
+	else:
+		pass

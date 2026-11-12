@@ -3,3 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://nj2flcrveed1" path="res://GameContent/Scenes/Objects/Collectables/collectable_base.tscn" id="1_v82w1"]
 
 [node name="Collectable" unique_id=1346826100 instance=ExtResource("1_v82w1")]
+pointAmount = 1
+powerupType = 1
