@@ -16,6 +16,7 @@ required_score = 3
 z_index = -1
 scroll_offset = Vector2(-977, -518)
 repeat_size = Vector2(1920, 1030)
+autoscroll = Vector2(20, 20)
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Background" unique_id=1361532852]
