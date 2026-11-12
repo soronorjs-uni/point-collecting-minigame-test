@@ -5,7 +5,7 @@ extends Node2D
 
 func _ready():
 	GameController.score_changed.connect(update_score)
-	GameController.update_score.emit(GameController.current_score, required_score)
+	GameController.update_score.emit(0, required_score)
 
 func update_score(score: int):
 	GameController.update_score.emit(score, required_score)
