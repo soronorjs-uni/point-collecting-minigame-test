@@ -29,3 +29,8 @@ theme_override_font_sizes/font_size = 60
 text = "99:99"
 horizontal_alignment = 1
 script = ExtResource("2_wao25")
+
+[node name="Timer" type="Timer" parent="Layout/Time" unique_id=1845065814]
+wait_time = 10.0
+one_shot = true
+autostart = true
