@@ -4,14 +4,18 @@
 [ext_resource type="Script" uid="uid://cc55n8akqye51" path="res://GameContent/Scripts/Levels/level_controller.gd" id="1_8b6ow"]
 [ext_resource type="Script" uid="uid://to0xn5shcvd3" path="res://GameContent/Scripts/collectable_spawner.gd" id="3_8b6ow"]
 [ext_resource type="PackedScene" uid="uid://cjoj5ecra1wrp" path="res://GameContent/Scenes/Entities/player.tscn" id="3_v34lu"]
-[ext_resource type="PackedScene" uid="uid://dxu3hydjwdik0" path="res://GameContent/Scenes/Objects/Collectables/collectable_points.tscn" id="5_s1nlh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(129, 1080)
 
 [node name="Game" type="Node2D" unique_id=141875500]
 script = ExtResource("1_8b6ow")
 
 [node name="Background" type="Parallax2D" parent="." unique_id=2095720515]
+z_index = -1
 scroll_offset = Vector2(-977, -518)
 repeat_size = Vector2(1920, 1030)
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Background" unique_id=1361532852]
 modulate = Color(0.58707833, 0.58707833, 0.58707833, 1)
@@ -30,14 +34,31 @@ metadata/_edit_use_anchors_ = true
 [node name="Player" parent="." unique_id=974397795 groups=["Player"] instance=ExtResource("3_v34lu")]
 unique_name_in_owner = true
 position = Vector2(966, 544)
+collision_mask = 2
 
 [node name="InstanceHolder" type="Node" parent="." unique_id=1714505040]
 script = ExtResource("3_8b6ow")
+metadata/collectibleDir = "res://GameContent/Scenes/Objects/Collectables/"
 
-[node name="Collectable" parent="InstanceHolder" unique_id=1346826100 instance=ExtResource("5_s1nlh")]
-position = Vector2(960, -382)
-collision_mask = 1
-max_contacts_reported = 0
-constant_force = Vector2(0, 100)
+[node name="SpawnTimer" type="Timer" parent="InstanceHolder" unique_id=1437462648]
+one_shot = true
+autostart = true
 
-[connection signal="body_entered" from="InstanceHolder/Collectable" to="InstanceHolder/Collectable" method="_on_body_entered"]
+[node name="Borders" type="Node" parent="." unique_id=51054065]
+
+[node name="Left" type="StaticBody2D" parent="Borders" unique_id=743257614]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Left" unique_id=1232993272]
+position = Vector2(-64.5, 78)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Right" type="StaticBody2D" parent="Borders" unique_id=1088805081]
+position = Vector2(2054, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Right" unique_id=1259990376]
+position = Vector2(-64.5, 78)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[connection signal="timeout" from="InstanceHolder/SpawnTimer" to="InstanceHolder" method="spawn_collectible"]

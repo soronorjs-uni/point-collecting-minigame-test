@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var required_score: int = 10
+@export var level_time: float = 10.0
 
 func _ready():
 	GameController.score_changed.connect(update_score)

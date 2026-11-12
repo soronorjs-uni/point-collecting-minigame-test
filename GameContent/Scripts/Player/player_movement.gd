@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 var dash_tween: Tween
 var dash_velocity := 0.0
-@export var dashing_available := false
+@export var dashing_available := true
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")

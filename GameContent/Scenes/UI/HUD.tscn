@@ -1,21 +1,31 @@
 [gd_scene format=3 uid="uid://byr4qyrr7inyt"]
 
 [ext_resource type="Script" uid="uid://b5j11kmyerjja" path="res://GameContent/Scripts/UI/score.gd" id="1_hlfmi"]
+[ext_resource type="Script" uid="uid://170t2yr388ml" path="res://GameContent/Scripts/UI/timer.gd" id="2_wao25"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1276797696]
 
-[node name="MainGrid" type="GridContainer" parent="." unique_id=1103384048]
+[node name="Layout" type="BoxContainer" parent="." unique_id=821514641]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
-[node name="Score" type="Label" parent="MainGrid" unique_id=1384129789]
+[node name="Score" type="Label" parent="Layout" unique_id=1384129789]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 60
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 40
 text = "Score: 9999/9999"
 horizontal_alignment = 1
 script = ExtResource("1_hlfmi")
+
+[node name="Time" type="Label" parent="Layout" unique_id=1996153379]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 60
+text = "99:99"
+horizontal_alignment = 1
+script = ExtResource("2_wao25")
