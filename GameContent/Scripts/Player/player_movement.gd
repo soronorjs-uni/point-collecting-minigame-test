@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	# Burst Velocity
 	if Input.is_action_just_pressed("dash"):
 		if dashing_available:
-			$Camera2D.shake_strength = 10.0
+			$Camera2D.shake_strength = 15.0
 			animationPlayer.current_animation = "dash"
 			animationPlayer.play("dash")
 			dash_velocity = DASH_SPEED
