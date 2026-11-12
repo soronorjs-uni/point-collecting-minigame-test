@@ -1,6 +1,5 @@
 extends Label
 
-var total_time = GameController.current_time
 @onready var timer: Timer = $Timer
 
 func _ready() -> void:
@@ -14,4 +13,4 @@ func _process(delta: float) -> void:
 	$".".text = "%02d:%03d" % [seconds, msec]
 
 func _on_timer_timeout() -> void:
-	pass
+	GameController.game_over.emit()

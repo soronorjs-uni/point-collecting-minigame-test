@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b5j11kmyerjja" path="res://GameContent/Scripts/UI/score.gd" id="1_hlfmi"]
 [ext_resource type="Script" uid="uid://170t2yr388ml" path="res://GameContent/Scripts/UI/timer.gd" id="2_wao25"]
+[ext_resource type="Script" uid="uid://0bmgmfre5p13" path="res://GameContent/Scripts/Start.gd" id="3_hyucr"]
+[ext_resource type="Script" uid="uid://bsjp42ajy05w4" path="res://GameContent/Scripts/UI/restart.gd" id="4_w2uii"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8b6ow"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1276797696]
 
@@ -30,7 +34,42 @@ text = "99:99"
 horizontal_alignment = 1
 script = ExtResource("2_wao25")
 
-[node name="Timer" type="Timer" parent="Layout/Time" unique_id=1845065814]
+[node name="Timer" type="Timer" parent="Layout/Time" unique_id=1736273595]
 wait_time = 10.0
-one_shot = true
-autostart = true
+
+[node name="StartInstructions" type="Label" parent="." unique_id=2109177062]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Press Any Key To Start!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_hyucr")
+
+[node name="RestartButton" type="Panel" parent="." unique_id=1947835249]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8b6ow")
+script = ExtResource("4_w2uii")
+
+[node name="Button" type="Button" parent="RestartButton" unique_id=2090145592]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36510417
+anchor_top = 0.42407408
+anchor_right = 0.63489586
+anchor_bottom = 0.57592595
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Restart"
+metadata/_edit_use_anchors_ = true
