@@ -10,3 +10,4 @@ func display():
 func _on_pressed() -> void:
 	get_tree().reload_current_scene()
 	$Button.visible = false
+	GameController.current_score = 0

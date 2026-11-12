@@ -9,13 +9,10 @@
 size = Vector2(129, 1080)
 
 [node name="Game" type="Node2D" unique_id=141875500]
-process_mode = 3
 script = ExtResource("1_8b6ow")
 required_score = 5
-level_time = 1
 
 [node name="Background" type="Parallax2D" parent="." unique_id=2095720515]
-process_mode = 1
 z_index = -1
 scroll_offset = Vector2(-977, -518)
 repeat_size = Vector2(1920, 1030)
@@ -37,12 +34,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." unique_id=974397795 groups=["Player"] instance=ExtResource("3_v34lu")]
 unique_name_in_owner = true
-process_mode = 1
 position = Vector2(966, 544)
 collision_mask = 2
 
 [node name="InstanceHolder" type="Node" parent="." unique_id=1714505040]
-process_mode = 1
 script = ExtResource("3_8b6ow")
 metadata/collectibleDir = "res://GameContent/Scenes/Objects/Collectables/"
 
@@ -51,7 +46,6 @@ one_shot = true
 autostart = true
 
 [node name="Borders" type="Node" parent="." unique_id=51054065]
-process_mode = 1
 
 [node name="Left" type="StaticBody2D" parent="Borders" unique_id=743257614]
 collision_layer = 2
