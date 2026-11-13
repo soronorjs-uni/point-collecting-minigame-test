@@ -13,4 +13,5 @@ func _process(delta: float) -> void:
 	$".".text = "%02d:%03d" % [seconds, msec]
 
 func _on_timer_timeout() -> void:
+	$".".text = "Time Out!"
 	GameController.game_over.emit()
