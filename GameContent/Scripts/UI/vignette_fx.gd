@@ -2,11 +2,11 @@ extends TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameController.powerup_dash.connect(vignette_dash)
+	GameController.vignette_effect.connect(vignette_effect)
 
 
-func vignette_dash():
-	var modulateColor = Color(0.739, 0.614, 0.0, 1.0)
+func vignette_effect(color: Color):
+	var modulateColor = color
 	$".".modulate = modulateColor
 	
 	$"../AnimationPlayer".play("vignette")

@@ -4,3 +4,4 @@
 
 [node name="Collectable" unique_id=1346826100 instance=ExtResource("1_v82w1")]
 pointAmount = 1
+vignetteColor = Color(0, 0, 0, 0)

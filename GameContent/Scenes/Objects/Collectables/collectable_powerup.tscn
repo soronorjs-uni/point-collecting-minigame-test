@@ -4,6 +4,7 @@
 
 [node name="Collectable" unique_id=1832340993 instance=ExtResource("1_l7er6")]
 powerupType = 1
+vignetteColor = Color(0.61822325, 0.47596854, 0.1427913, 1)
 
 [node name="Sprite2D" parent="." index="0" unique_id=1091172272]
 modulate = Color(0.8973282, 0.69272375, 0, 1)

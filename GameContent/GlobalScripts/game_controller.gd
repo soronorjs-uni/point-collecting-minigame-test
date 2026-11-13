@@ -8,6 +8,8 @@ signal game_start()
 
 signal powerup_dash()
 
+signal vignette_effect(color: Color)
+
 var current_score: int:
 	set(value):
 		current_score = value
