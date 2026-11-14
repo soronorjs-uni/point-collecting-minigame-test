@@ -9,6 +9,7 @@ var dashing = false
 @export var dashing_available := true
 
 @onready var animationPlayer = $AnimationPlayer
+@onready var FX_animation = $FX
 
 var trail_point_limit = 0
 
@@ -22,6 +23,7 @@ func _physics_process(delta: float) -> void:
 			$Camera2D.shake_strength = 15.0
 			animationPlayer.current_animation = "dash"
 			animationPlayer.play("dash")
+			FX_animation.play("electricity", -1, -2, true)
 			dash_velocity = DASH_SPEED
 			if dash_tween:
 				dash_tween.stop()
@@ -43,8 +45,9 @@ func _physics_process(delta: float) -> void:
 	
 func powerup(powerupType: Enum.POWERUP):
 	if powerupType == Enum.POWERUP.DASH:
-		dashing_available = true
-		GameController.powerup_dash.emit()
+		if !dashing_available:
+			dashing_available = true
+			FX_animation.play("electricity")
 	else:
 		pass
 

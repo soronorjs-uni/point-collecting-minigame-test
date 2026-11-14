@@ -6,8 +6,6 @@ signal update_score(score: int, required_score: int)
 signal game_over()
 signal game_start()
 
-signal powerup_dash()
-
 signal vignette_effect(color: Color)
 
 var current_score: int:

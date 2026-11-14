@@ -5,12 +5,21 @@
 [ext_resource type="Script" uid="uid://to0xn5shcvd3" path="res://GameContent/Scripts/collectable_spawner.gd" id="3_8b6ow"]
 [ext_resource type="PackedScene" uid="uid://cjoj5ecra1wrp" path="res://GameContent/Scenes/Entities/player.tscn" id="3_v34lu"]
 
+[sub_resource type="Environment" id="Environment_g4v7s"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.5
+glow_bloom = 0.1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(129, 1080)
 
 [node name="Game" type="Node2D" unique_id=141875500]
 script = ExtResource("1_8b6ow")
 required_score = 3
+
+[node name="PostProcessing" type="WorldEnvironment" parent="." unique_id=633979068]
+environment = SubResource("Environment_g4v7s")
 
 [node name="Background" type="Parallax2D" parent="." unique_id=2095720515]
 z_index = -1

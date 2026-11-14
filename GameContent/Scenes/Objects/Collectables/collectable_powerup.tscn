@@ -7,7 +7,7 @@ powerupType = 1
 vignetteColor = Color(0.61822325, 0.47596854, 0.1427913, 1)
 
 [node name="Sprite2D" parent="." index="0" unique_id=1091172272]
-modulate = Color(0.8973282, 0.69272375, 0, 1)
+modulate = Color(1.8247963, 1.4195247, 0, 1)
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1777644734]
 visible = false
