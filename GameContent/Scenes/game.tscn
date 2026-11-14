@@ -15,8 +15,10 @@ glow_bloom = 0.1
 size = Vector2(129, 1080)
 
 [node name="Game" type="Node2D" unique_id=141875500]
+process_mode = 1
 script = ExtResource("1_8b6ow")
 required_score = 3
+level_time = 1
 
 [node name="PostProcessing" type="WorldEnvironment" parent="." unique_id=633979068]
 environment = SubResource("Environment_g4v7s")

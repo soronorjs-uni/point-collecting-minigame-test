@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GameController="*uid://ca1l6hhoi5aed"
 Enum="*uid://cwm1whr2jqt7a"
 FileUtility="*uid://b3t02x1w1ytky"
+SceneManager="*uid://4ubilv4dkwwp"
 
 [display]
 

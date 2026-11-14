@@ -93,7 +93,6 @@ script = ExtResource("2_wao25")
 
 [node name="Timer" type="Timer" parent="Layout/Time" unique_id=1736273595]
 wait_time = 10.0
-one_shot = true
 
 [node name="StartInstructions" type="Label" parent="." unique_id=2109177062]
 process_mode = 3

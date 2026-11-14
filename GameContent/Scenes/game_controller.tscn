@@ -5,10 +5,13 @@
 [ext_resource type="Script" uid="uid://b3t02x1w1ytky" path="res://GameContent/GlobalScripts/file_utility.gd" id="3_w01bd"]
 
 [node name="GameController" type="Node" unique_id=889076977]
+process_mode = 3
 script = ExtResource("1_nrvs4")
 
 [node name="SceneManager" type="Node2D" parent="." unique_id=634573039]
 script = ExtResource("2_d5eyr")
+
+[node name="SceneHolder" type="Node" parent="." unique_id=1248786247]
 
 [node name="FileUtility" type="Node" parent="." unique_id=1912910803]
 script = ExtResource("3_w01bd")

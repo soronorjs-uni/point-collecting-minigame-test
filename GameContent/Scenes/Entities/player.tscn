@@ -179,6 +179,7 @@ collision_mask = 0
 script = ExtResource("1_ado7o")
 SPEED = 800.0
 DASH_SPEED = 2500.0
+dashing_available = false
 
 [node name="HUD" parent="." unique_id=1276797696 instance=ExtResource("2_ado7o")]
 layer = 9999
@@ -215,7 +216,6 @@ libraries/ = SubResource("AnimationLibrary_smjya")
 [node name="Line2D" type="Line2D" parent="." unique_id=926476880]
 top_level = true
 z_index = -1
-points = PackedVector2Array(0, 0, 200, 0)
 width = 100.0
 width_curve = SubResource("Curve_57qmd")
 gradient = SubResource("Gradient_g4v7s")
