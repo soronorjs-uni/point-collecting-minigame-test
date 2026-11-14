@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bev2qb0ved0up" path="res://icon.svg" id="1_7by1v"]
 [ext_resource type="Script" uid="uid://cc55n8akqye51" path="res://GameContent/Scripts/Levels/level_controller.gd" id="1_8b6ow"]
+[ext_resource type="CompressedTexture3D" uid="uid://dqn6ai7irpkty" path="res://images/PostProcessing/ultra_65.png" id="2_s1nlh"]
 [ext_resource type="Script" uid="uid://to0xn5shcvd3" path="res://GameContent/Scripts/collectable_spawner.gd" id="3_8b6ow"]
 [ext_resource type="PackedScene" uid="uid://cjoj5ecra1wrp" path="res://GameContent/Scenes/Entities/player.tscn" id="3_v34lu"]
 
@@ -10,6 +11,12 @@ background_mode = 3
 glow_enabled = true
 glow_intensity = 1.5
 glow_bloom = 0.1
+volumetric_fog_density = 1.0
+volumetric_fog_emission = Color(0.98895735, 0.98895746, 0.98895735, 1)
+volumetric_fog_emission_energy = 1024.0
+volumetric_fog_length = 102.0
+adjustment_enabled = true
+adjustment_color_correction = ExtResource("2_s1nlh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(129, 1080)
@@ -18,7 +25,6 @@ size = Vector2(129, 1080)
 process_mode = 1
 script = ExtResource("1_8b6ow")
 required_score = 3
-level_time = 1
 
 [node name="PostProcessing" type="WorldEnvironment" parent="." unique_id=633979068]
 environment = SubResource("Environment_g4v7s")
@@ -48,6 +54,9 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 position = Vector2(966, 544)
 collision_mask = 2
+
+[node name="StartPos" type="Marker2D" parent="." unique_id=1182786642]
+position = Vector2(966, 544)
 
 [node name="InstanceHolder" type="Node" parent="." unique_id=1714505040]
 script = ExtResource("3_8b6ow")

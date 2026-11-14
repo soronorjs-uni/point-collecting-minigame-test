@@ -8,7 +8,6 @@ func _ready():
 	load_scene("res://GameContent/Scenes/game.tscn")
 
 func load_scene(scene_path: String):
-	get_tree().paused = false
 	if scene_holder:
 		if scene_holder.get_child_count() > 0:
 			for child in scene_holder.get_children():

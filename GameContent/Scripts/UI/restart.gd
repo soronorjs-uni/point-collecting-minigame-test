@@ -8,6 +8,6 @@ func display():
 	get_tree().paused = true
 
 func _on_pressed() -> void:
-	SceneManager.load_scene("res://GameContent/Scenes/game.tscn")
+	get_tree().reload_current_scene()
 	$Button.visible = false
 	GameController.current_score = 0
