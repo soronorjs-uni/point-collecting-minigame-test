@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	
 	# Burst Velocity
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") && direction:
 		if dashing_available:
 			trail_point_limit = 10
 			$Camera2D.shake_strength = 15.0
