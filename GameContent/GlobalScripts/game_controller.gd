@@ -11,10 +11,11 @@ signal cam_shake(intensity: int, time: float)
 
 var current_score: int:
 	set(value):
-		current_score = value
-		score_changed.emit(value, required_score)
-		if value >= required_score:
-			game_over.emit()
+		if value >= 0:
+			current_score = value
+			score_changed.emit(value, required_score)
+			if value >= required_score:
+				game_over.emit()
 		
 var required_score: int
 
