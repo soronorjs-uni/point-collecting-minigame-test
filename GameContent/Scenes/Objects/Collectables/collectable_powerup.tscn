@@ -19,6 +19,7 @@ colors = PackedColorArray(1.5720325, 1.5296973, 0, 1, 1, 1, 1, 0)
 
 [node name="Collectable" unique_id=1832340993 instance=ExtResource("1_l7er6")]
 gravity_scale = 1.0
+spawnChance = 0.2
 powerupType = 1
 vignetteColor = Color(0.61822325, 0.47596854, 0.1427913, 1)
 

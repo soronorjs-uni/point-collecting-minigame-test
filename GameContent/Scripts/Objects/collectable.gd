@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+@export var spawnChance : float
+
 @export var pointAmount : int
 @export var powerupType : Enum.POWERUP
 @export var vignetteColor : Color
