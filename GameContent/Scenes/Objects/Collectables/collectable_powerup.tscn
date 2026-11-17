@@ -1,16 +1,30 @@
 [gd_scene format=3 uid="uid://c6jl1icg6t2y4"]
 
 [ext_resource type="PackedScene" uid="uid://nj2flcrveed1" path="res://GameContent/Scenes/Objects/collectable_base.tscn" id="1_l7er6"]
+[ext_resource type="Texture2D" uid="uid://bev2qb0ved0up" path="res://icon.svg" id="2_21450"]
+[ext_resource type="Shader" uid="uid://d1edtscgmskxf" path="res://GameContent/Shaders/new_visual_shader.tres" id="2_qt78y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ulfu"]
+shader = ExtResource("2_qt78y")
+shader_parameter/ColorParameter = Color(0.95686275, 0.8039216, 0, 1)
+shader_parameter/FloatParameter = 0.0
 
 [node name="Collectable" unique_id=1832340993 instance=ExtResource("1_l7er6")]
 powerupType = 1
 vignetteColor = Color(0.61822325, 0.47596854, 0.1427913, 1)
 
-[node name="Sprite2D" parent="." index="0" unique_id=1091172272]
+[node name="Sprite2D2" type="Sprite2D" parent="." index="0" unique_id=10012621]
 modulate = Color(1.8247963, 1.4195247, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_21450")
 
-[node name="CollisionShape2D" parent="." index="1" unique_id=1777644734]
+[node name="Sprite2D" parent="." index="1" unique_id=1091172272]
+modulate = Color(1.8247963, 1.4195247, 0, 1)
+material = SubResource("ShaderMaterial_6ulfu")
+scale = Vector2(0.55, 0.55)
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1777644734]
 visible = false
 
-[node name="Area2D" parent="." index="2" unique_id=908547874]
+[node name="Area2D" parent="." index="3" unique_id=908547874]
 visible = false

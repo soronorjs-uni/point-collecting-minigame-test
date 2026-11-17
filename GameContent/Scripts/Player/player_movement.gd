@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 			$Camera2D.shake_strength = 15.0
 			animationPlayer.current_animation = "dash"
 			animationPlayer.play("dash")
-			FX_animation.play("electricity", -1, -2, true)
+			FX_animation.play("electricity", -1, -1, true)
 			dash_velocity = DASH_SPEED
 			if dash_tween:
 				dash_tween.stop()

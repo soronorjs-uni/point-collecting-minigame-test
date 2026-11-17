@@ -8,10 +8,11 @@
 process_mode = 3
 script = ExtResource("1_nrvs4")
 
-[node name="SceneManager" type="Node2D" parent="." unique_id=634573039]
+[node name="SceneManager" type="Node" parent="." unique_id=747915291 node_paths=PackedStringArray("scene_holder")]
 script = ExtResource("2_d5eyr")
+scene_holder = NodePath("SceneHolder")
 
-[node name="SceneHolder" type="Node" parent="." unique_id=1248786247]
+[node name="SceneHolder" type="Node2D" parent="SceneManager" unique_id=1942033514]
 
 [node name="FileUtility" type="Node" parent="." unique_id=1912910803]
 script = ExtResource("3_w01bd")

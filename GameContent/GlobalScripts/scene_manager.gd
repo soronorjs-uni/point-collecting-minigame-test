@@ -1,20 +1,27 @@
-extends Node2D
+extends Node
 
-@onready var scene_holder = $"../SceneHolder"
+@export var scene_holder: Node
+@export var current_scene: Node
 
-var scene
+signal scene_changed(scene: Node)
 
 func _ready():
-	load_scene("res://GameContent/Scenes/game.tscn")
+	if scene_holder:
+		load_scene("res://GameContent/Scenes/game.tscn")
 
 func load_scene(scene_path: String):
-	if scene_holder:
-		if scene_holder.get_child_count() > 0:
-			for child in scene_holder.get_children():
-				scene_holder.remove_child(child)
-				child.queue_free()
-
-		if not scene:
-			var scene = load(scene_path)
-			var scene_instance = scene.instantiate()
-			scene_holder.add_child(scene_instance)
+	instance_scene(load(scene_path))
+	
+func set_scene_path(node: Node):
+	scene_holder = node
+			
+func instance_scene(packed_scene : PackedScene):
+	if current_scene:
+		scene_holder.remove_child(current_scene)
+		current_scene.queue_free()
+			
+	var new_scene = packed_scene.instantiate()
+	scene_holder.add_child(new_scene)
+		
+	current_scene = scene_holder.get_child(-1)
+	scene_changed.emit(new_scene)

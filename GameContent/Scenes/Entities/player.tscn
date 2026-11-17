@@ -43,7 +43,7 @@ shader = SubResource("VisualShader_4n8t5")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
 shader = ExtResource("4_4n8t5")
-shader_parameter/ColorParameter = Color(0.95706517, 0.80247366, 0, 1)
+shader_parameter/ColorParameter = Color(0.95686275, 0.8039216, 0, 1)
 shader_parameter/FloatParameter = 1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_57qmd"]
