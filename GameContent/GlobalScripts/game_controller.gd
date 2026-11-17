@@ -26,3 +26,8 @@ var inf_dash : bool = false
 func set_game_paused(paused: bool):
 	get_tree().paused = paused
 	Engine.time_scale = !paused
+
+func reset():
+	spawn_delay = GlobalConfig.default_spawn_delay
+	SceneManager.load_scene("res://GameContent/Scenes/game.tscn")
+	current_score = 0

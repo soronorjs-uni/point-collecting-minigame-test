@@ -21,6 +21,7 @@ GameController="*uid://ca1l6hhoi5aed"
 Enum="*uid://cwm1whr2jqt7a"
 FileUtility="*uid://b3t02x1w1ytky"
 SceneManager="*uid://4ubilv4dkwwp"
+GlobalConfig="*uid://djf3jm0a6bgld"
 
 [display]
 
@@ -33,6 +34,10 @@ window/stretch/aspect="expand"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/script_splitter/plugin.cfg")
 
 [global_group]
 

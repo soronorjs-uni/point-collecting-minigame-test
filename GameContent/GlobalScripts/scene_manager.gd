@@ -7,10 +7,12 @@ signal scene_changed(scene: Node)
 
 func _ready():
 	if scene_holder:
+		GameController.reset()
 		load_scene("res://GameContent/Scenes/game.tscn")
 
 func load_scene(scene_path: String):
-	instance_scene(load(scene_path))
+	if scene_holder:
+		instance_scene(load(scene_path))
 	
 func set_scene_path(node: Node):
 	scene_holder = node
