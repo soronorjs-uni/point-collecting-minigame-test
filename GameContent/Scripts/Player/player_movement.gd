@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("dash") && direction:
 		if dashing_available:
 			trail_point_limit = 10
-			$Camera2D.cam_shake(8, 0.5)
+			$Camera2D.cam_shake(8, 0.1)
 			animationPlayer.current_animation = "dash"
 			animationPlayer.play("dash")
 			FX_animation.play("electricity", -1, -1, true)

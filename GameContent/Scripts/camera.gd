@@ -12,6 +12,8 @@ var lerp_weight: float = 10.5
 
 var noise = FastNoiseLite.new()
 
+@export var max_roll = deg_to_rad(0.05)
+
 func _ready() -> void:
 	randomize()
 
@@ -24,10 +26,13 @@ func _physics_process(delta: float) -> void:
 			noise.get_noise_2d(shake_time, 0) * shake_intensity, 
 			noise.get_noise_2d(0, shake_time) * shake_intensity
 		)
+		
+		rotation = max_roll * shake_intensity * noise.get_noise_1d(shake_time) * shake_intensity
 
 		shake_intensity = max(shake_intensity - shake_decay * delta, 0)
 	else:
 		offset = lerp(offset, Vector2.ZERO, lerp_weight * delta)
+		rotation = lerp(rotation, 0.0, lerp_weight * delta)
 	
 func cam_shake(intensity: int, time: float):
 	noise.seed = randi()

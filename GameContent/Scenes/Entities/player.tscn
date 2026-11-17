@@ -186,9 +186,12 @@ layer = 9999
 [node name="Camera2D" type="Camera2D" parent="." unique_id=312984403]
 material = SubResource("ShaderMaterial_7hyq1")
 position = Vector2(0, -464)
+ignore_rotation = false
 limit_left = 0
 limit_right = 1920
+position_smoothing_enabled = true
 position_smoothing_speed = 15.0
+rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 script = ExtResource("3_pncag")
