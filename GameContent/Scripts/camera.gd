@@ -15,6 +15,7 @@ var noise = FastNoiseLite.new()
 @export var max_roll = deg_to_rad(0.05)
 
 func _ready() -> void:
+	GameController.cam_shake.connect(cam_shake)
 	randomize()
 
 func _physics_process(delta: float) -> void:

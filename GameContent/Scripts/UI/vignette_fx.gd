@@ -9,4 +9,5 @@ func vignette_effect(color: Color):
 	var modulateColor = color
 	$".".modulate = modulateColor
 	
+	$"../AnimationPlayer".stop()
 	$"../AnimationPlayer".play("vignette")

@@ -7,6 +7,8 @@ signal game_start()
 
 signal vignette_effect(color: Color)
 
+signal cam_shake(intensity: int, time: float)
+
 var current_score: int:
 	set(value):
 		current_score = value

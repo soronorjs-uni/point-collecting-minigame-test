@@ -6,3 +6,4 @@
 modulate = Color(0.62681985, 0.11993108, 9.62615e-08, 1)
 pointAmount = -1
 vignetteColor = Color(0.6901961, 0, 0, 1)
+camShakeStrength = 8.0
