@@ -6,6 +6,46 @@
 [ext_resource type="Script" uid="uid://b4ht08qtdcvda" path="res://GameContent/Scripts/UI/Dev/dev_panel.gd" id="4_kfpmn"]
 [ext_resource type="Script" uid="uid://7mx25vrx3a3m" path="res://GameContent/Scripts/UI/Dev/inf_dash_toggle.gd" id="5_cda1l"]
 
+[sub_resource type="DPITexture" id="DPITexture_kfpmn"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\"/></svg>
+"
+base_scale = 2.0
+
+[sub_resource type="DPITexture" id="DPITexture_cda1l"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".5\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
+"
+base_scale = 2.0
+
+[sub_resource type="DPITexture" id="DPITexture_vi6mu"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".37\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
+"
+base_scale = 2.0
+
+[sub_resource type="DPITexture" id="DPITexture_mlfcs"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".25\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
+"
+base_scale = 2.0
+
+[sub_resource type="DPITexture" id="DPITexture_pts18"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\"/></svg>
+"
+base_scale = 2.0
+
+[sub_resource type="DPITexture" id="DPITexture_uhyqm"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".5\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
+"
+base_scale = 2.0
+
+[sub_resource type="DPITexture" id="DPITexture_wa2ap"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".37\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
+"
+base_scale = 2.0
+
+[sub_resource type="DPITexture" id="DPITexture_h6u01"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".25\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
+"
+base_scale = 2.0
+
 [node name="GameController" type="Node" unique_id=889076977]
 process_mode = 3
 script = ExtResource("1_nrvs4")
@@ -21,6 +61,7 @@ script = ExtResource("3_w01bd")
 
 [node name="DevHUD" type="CanvasLayer" parent="." unique_id=1301063790]
 layer = 9999
+visible = false
 script = ExtResource("4_kfpmn")
 
 [node name="DevPanel" type="FoldableContainer" parent="DevHUD" unique_id=1014184220]
@@ -34,9 +75,19 @@ grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="InfDashToggle" type="CheckButton" parent="DevHUD/DevPanel" unique_id=525340160]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
+theme_override_icons/checked = SubResource("DPITexture_kfpmn")
+theme_override_icons/unchecked = SubResource("DPITexture_cda1l")
+theme_override_icons/checked_disabled = SubResource("DPITexture_vi6mu")
+theme_override_icons/unchecked_disabled = SubResource("DPITexture_mlfcs")
+theme_override_icons/checked_mirrored = SubResource("DPITexture_pts18")
+theme_override_icons/unchecked_mirrored = SubResource("DPITexture_uhyqm")
+theme_override_icons/checked_disabled_mirrored = SubResource("DPITexture_wa2ap")
+theme_override_icons/unchecked_disabled_mirrored = SubResource("DPITexture_h6u01")
 text = "Infinite Dash"
+expand_icon = true
 script = ExtResource("5_cda1l")
 
 [connection signal="toggled" from="DevHUD/DevPanel/InfDashToggle" to="DevHUD/DevPanel/InfDashToggle" method="_on_toggled"]

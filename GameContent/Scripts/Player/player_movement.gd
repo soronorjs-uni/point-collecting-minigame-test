@@ -56,7 +56,7 @@ func powerup(powerupType: Enum.POWERUP):
 		pass
 
 func display_trail():
-	if $Line2D.points.size() >= trail_point_limit:
+	if $Line2D.points.size() >= trail_point_limit && $Line2D.points.size() != 0:
 		$Line2D.remove_point(0)
 	else:
 		$Line2D.add_point(global_position)

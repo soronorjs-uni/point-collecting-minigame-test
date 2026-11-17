@@ -1,7 +1,9 @@
 extends Node
+		
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _unhandled_key_input(event: InputEvent) -> void:
 	if OS.is_debug_build():
-		self.visible = true
+		if Input.is_key_pressed(KEY_F1):
+			self.visible = !self.visible
+	else:
+		self.visible = false
