@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Burst Velocity
 	if Input.is_action_just_pressed("dash") && direction:
-		if dashing_available:
+		if dashing_available || GameController.inf_dash:
 			trail_point_limit = 10
 			GameController.cam_shake.emit(8, 0.1)
 			animationPlayer.current_animation = "dash"

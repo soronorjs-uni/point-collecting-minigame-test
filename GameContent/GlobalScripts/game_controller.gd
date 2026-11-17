@@ -19,6 +19,8 @@ var current_score: int:
 		
 var required_score: int
 
+var inf_dash : bool = false
+
 func set_game_paused(paused: bool):
 	get_tree().paused = paused
 	Engine.time_scale = !paused

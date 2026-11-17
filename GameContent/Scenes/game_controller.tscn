@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://ca1l6hhoi5aed" path="res://GameContent/GlobalScripts/game_controller.gd" id="1_nrvs4"]
 [ext_resource type="Script" uid="uid://4ubilv4dkwwp" path="res://GameContent/GlobalScripts/scene_manager.gd" id="2_d5eyr"]
 [ext_resource type="Script" uid="uid://b3t02x1w1ytky" path="res://GameContent/GlobalScripts/file_utility.gd" id="3_w01bd"]
+[ext_resource type="Script" uid="uid://b4ht08qtdcvda" path="res://GameContent/Scripts/UI/Dev/dev_panel.gd" id="4_kfpmn"]
+[ext_resource type="Script" uid="uid://7mx25vrx3a3m" path="res://GameContent/Scripts/UI/Dev/inf_dash_toggle.gd" id="5_cda1l"]
 
 [node name="GameController" type="Node" unique_id=889076977]
 process_mode = 3
@@ -16,3 +18,25 @@ scene_holder = NodePath("SceneHolder")
 
 [node name="FileUtility" type="Node" parent="." unique_id=1912910803]
 script = ExtResource("3_w01bd")
+
+[node name="DevHUD" type="CanvasLayer" parent="." unique_id=1301063790]
+layer = 9999
+script = ExtResource("4_kfpmn")
+
+[node name="DevPanel" type="FoldableContainer" parent="DevHUD" unique_id=1014184220]
+anchors_preset = -1
+anchor_left = 0.93525004
+anchor_right = 1.0000001
+anchor_bottom = 0.037
+offset_left = 0.3199463
+offset_bottom = 0.040000916
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="InfDashToggle" type="CheckButton" parent="DevHUD/DevPanel" unique_id=525340160]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Infinite Dash"
+script = ExtResource("5_cda1l")
+
+[connection signal="toggled" from="DevHUD/DevPanel/InfDashToggle" to="DevHUD/DevPanel/InfDashToggle" method="_on_toggled"]
