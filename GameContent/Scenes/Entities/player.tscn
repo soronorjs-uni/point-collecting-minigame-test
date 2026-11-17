@@ -208,9 +208,11 @@ visible = false
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=446253716]
+process_mode = 3
 libraries/ = SubResource("AnimationLibrary_ifjf5")
 
 [node name="FX" type="AnimationPlayer" parent="." unique_id=398719588]
+process_mode = 3
 libraries/ = SubResource("AnimationLibrary_smjya")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=926476880]

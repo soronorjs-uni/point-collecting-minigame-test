@@ -3,7 +3,7 @@ extends Node2D
 @export var level_required_score: int = 10
 @export var level_time: int = 10
 
-@onready var timer: Timer = %Player.get_node("HUD/Layout/Time/Timer")
+@onready var timer: Timer = %Player.get_node("HUD/MarginContainer/Time/Timer")
 
 func _ready():
 	GameController.game_start.connect(start_timer)

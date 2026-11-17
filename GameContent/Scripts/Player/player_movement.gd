@@ -13,6 +13,10 @@ var dashing = false
 
 var trail_point_limit = 0
 
+func _ready() -> void:
+	animationPlayer.play("RESET")
+	FX_animation.play("RESET")
+
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	
