@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://byr4qyrr7inyt" path="res://GameContent/Scenes/UI/HUD.tscn" id="2_ado7o"]
 [ext_resource type="Script" uid="uid://d2glduievxe2j" path="res://GameContent/Scripts/camera.gd" id="3_pncag"]
 [ext_resource type="Shader" uid="uid://d1edtscgmskxf" path="res://GameContent/Shaders/new_visual_shader.tres" id="4_4n8t5"]
+[ext_resource type="Script" uid="uid://62ghinwucx04" path="res://GameContent/Scripts/FX/trail.gd" id="6_ifjf5"]
 
 [sub_resource type="Gradient" id="Gradient_vkghc"]
 offsets = PackedFloat32Array(0.4982699, 1)
@@ -217,7 +218,7 @@ libraries/ = SubResource("AnimationLibrary_ifjf5")
 process_mode = 3
 libraries/ = SubResource("AnimationLibrary_smjya")
 
-[node name="Line2D" type="Line2D" parent="." unique_id=926476880]
+[node name="Trail" type="Line2D" parent="." unique_id=926476880]
 top_level = true
 z_index = -1
 width = 100.0
@@ -226,3 +227,4 @@ gradient = SubResource("Gradient_g4v7s")
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
+script = ExtResource("6_ifjf5")

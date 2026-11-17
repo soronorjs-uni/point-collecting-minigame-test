@@ -3,13 +3,22 @@
 [ext_resource type="PackedScene" uid="uid://nj2flcrveed1" path="res://GameContent/Scenes/Objects/collectable_base.tscn" id="1_l7er6"]
 [ext_resource type="Texture2D" uid="uid://bev2qb0ved0up" path="res://icon.svg" id="2_21450"]
 [ext_resource type="Shader" uid="uid://d1edtscgmskxf" path="res://GameContent/Shaders/new_visual_shader.tres" id="2_qt78y"]
+[ext_resource type="Script" uid="uid://62ghinwucx04" path="res://GameContent/Scripts/FX/trail.gd" id="4_bl5nl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ulfu"]
 shader = ExtResource("2_qt78y")
 shader_parameter/ColorParameter = Color(0.95686275, 0.8039216, 0, 1)
 shader_parameter/FloatParameter = 0.0
 
+[sub_resource type="Curve" id="Curve_qxc68"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_0ha3i"]
+colors = PackedColorArray(1.5720325, 1.5296973, 0, 1, 1, 1, 1, 0)
+
 [node name="Collectable" unique_id=1832340993 instance=ExtResource("1_l7er6")]
+gravity_scale = 1.0
 powerupType = 1
 vignetteColor = Color(0.61822325, 0.47596854, 0.1427913, 1)
 
@@ -28,3 +37,15 @@ visible = false
 
 [node name="Area2D" parent="." index="3" unique_id=908547874]
 visible = false
+
+[node name="Trail" type="Line2D" parent="." index="4" unique_id=1041422528]
+top_level = true
+z_index = -1
+width = 50.0
+width_curve = SubResource("Curve_qxc68")
+gradient = SubResource("Gradient_0ha3i")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("4_bl5nl")
+trail_point_limit = 15

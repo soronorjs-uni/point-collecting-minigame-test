@@ -10,8 +10,7 @@ var dashing = false
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var FX_animation = $FX
-
-var trail_point_limit = 0
+@onready var trail = $Trail
 
 func _ready() -> void:
 	animationPlayer.play("RESET")
@@ -23,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	# Burst Velocity
 	if Input.is_action_just_pressed("dash") && direction:
 		if dashing_available || GameController.inf_dash:
-			trail_point_limit = 10
+			trail.trail_point_limit = 10
 			GameController.cam_shake.emit(8, 0.1)
 			animationPlayer.current_animation = "dash"
 			animationPlayer.play("dash")
@@ -38,13 +37,13 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		if !animationPlayer.current_animation == "dash":
 			animationPlayer.play("walk_loop")
-			trail_point_limit = 0
+			trail.trail_point_limit = 0
 		velocity.x = direction * (SPEED + dash_velocity)
 	else:
 		animationPlayer.stop()
 		velocity.x = move_toward(velocity.x, 0.0, SPEED)
 		
-	display_trail()
+	trail.display_trail()
 	move_and_slide()
 	
 func powerup(powerupType: Enum.POWERUP):
@@ -54,9 +53,3 @@ func powerup(powerupType: Enum.POWERUP):
 			FX_animation.play("electricity")
 	else:
 		pass
-
-func display_trail():
-	if $Line2D.points.size() >= trail_point_limit && $Line2D.points.size() != 0:
-		$Line2D.remove_point(0)
-	else:
-		$Line2D.add_point(global_position)

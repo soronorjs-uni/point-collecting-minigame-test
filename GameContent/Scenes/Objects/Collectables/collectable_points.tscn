@@ -1,7 +1,26 @@
 [gd_scene format=3 uid="uid://dxu3hydjwdik0"]
 
 [ext_resource type="PackedScene" uid="uid://nj2flcrveed1" path="res://GameContent/Scenes/Objects/collectable_base.tscn" id="1_v82w1"]
+[ext_resource type="Script" uid="uid://62ghinwucx04" path="res://GameContent/Scripts/FX/trail.gd" id="2_rfv3q"]
+
+[sub_resource type="Curve" id="Curve_8qgc5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_iylmf"]
+colors = PackedColorArray(1, 1, 1, 0.24705882, 1, 1, 1, 0)
 
 [node name="Collectable" unique_id=1346826100 instance=ExtResource("1_v82w1")]
 pointAmount = 1
-vignetteColor = Color(0, 0, 0, 0)
+
+[node name="Trail" type="Line2D" parent="." index="3" unique_id=838932664]
+top_level = true
+z_index = -1
+width = 50.0
+width_curve = SubResource("Curve_8qgc5")
+gradient = SubResource("Gradient_iylmf")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("2_rfv3q")
+trail_point_limit = 15

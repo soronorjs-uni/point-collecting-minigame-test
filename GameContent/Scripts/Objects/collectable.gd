@@ -5,6 +5,8 @@ extends RigidBody2D
 @export var vignetteColor : Color
 @export var camShakeStrength : float
 
+@onready var trail = $Trail
+
 var gave_score = false
 
 func _on_body_entered(body: Node2D) -> void:
@@ -16,3 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 			GameController.cam_shake.emit(camShakeStrength, 0.1)
 		body.powerup(powerupType)
 		$".".queue_free()
+		
+func _process(delta: float) -> void:
+	if trail:
+		trail.display_trail()
