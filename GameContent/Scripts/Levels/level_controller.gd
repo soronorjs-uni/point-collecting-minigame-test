@@ -11,7 +11,7 @@ func _ready():
 	GameController.score_changed.emit(0, GameController.required_score)
 	SceneManager.set_scene_path(self.get_parent())
 	SceneManager.current_scene = $"."
-	get_tree().paused = true
+	GameController.set_game_paused(true)
 
 func start_timer():
 	timer.start(level_time)

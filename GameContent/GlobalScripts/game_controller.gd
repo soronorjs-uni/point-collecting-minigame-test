@@ -15,3 +15,7 @@ var current_score: int:
 			game_over.emit()
 		
 var required_score: int
+
+func set_game_paused(paused: bool):
+	get_tree().paused = paused
+	Engine.time_scale = !paused

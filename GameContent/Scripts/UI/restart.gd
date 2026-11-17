@@ -5,7 +5,7 @@ func _process(delta: float) -> void:
 
 func display():
 	$Button.visible = true
-	get_tree().paused = true
+	GameController.set_game_paused(true)
 
 func _on_pressed() -> void:
 	$Button.visible = false

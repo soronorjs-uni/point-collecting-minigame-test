@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("dash") && direction:
 		if dashing_available:
 			trail_point_limit = 10
-			$Camera2D.shake_strength = 15.0
+			$Camera2D.cam_shake(8, 0.5)
 			animationPlayer.current_animation = "dash"
 			animationPlayer.play("dash")
 			FX_animation.play("electricity", -1, -1, true)
@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 				dash_tween.stop()
 			dash_tween = create_tween()
 			dash_tween.tween_property(self, "dash_velocity", 0, 0.3).set_ease(Tween.EASE_OUT)
-			dashing_available = false
+			#dashing_available = false
 
 	if direction:
 		if !animationPlayer.current_animation == "dash":
