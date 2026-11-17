@@ -11,7 +11,7 @@ point_count = 2
 colors = PackedColorArray(1, 1, 1, 0.24705882, 1, 1, 1, 0)
 
 [node name="Collectable" unique_id=1346826100 instance=ExtResource("1_v82w1")]
-spawnChance = 1.0
+spawnChance = 0.5
 pointAmount = 1
 
 [node name="Trail" type="Line2D" parent="." index="3" unique_id=838932664]

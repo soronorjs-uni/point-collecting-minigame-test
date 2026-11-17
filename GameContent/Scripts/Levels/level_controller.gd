@@ -9,6 +9,7 @@ func _ready():
 	GameController.game_start.connect(start_timer)
 	GameController.required_score = level_required_score
 	GameController.score_changed.emit(0, GameController.required_score)
+	GameController.spawn_delay = 1.0
 	SceneManager.set_scene_path(self.get_parent())
 	SceneManager.current_scene = $"."
 	GameController.set_game_paused(true)

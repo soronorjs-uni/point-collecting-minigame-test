@@ -11,6 +11,9 @@ func _process(delta: float) -> void:
 	var msec: int = int((time - seconds) * 1000)
 
 	$".".text = "%02d:%03d" % [seconds, msec]
+	
+	if $Timer.time_left < 7.0:
+		GameController.spawn_delay = 0.3
 
 func _on_timer_timeout() -> void:
 	$".".text = "Time Out!"

@@ -19,6 +19,8 @@ var current_score: int:
 		
 var required_score: int
 
+var spawn_delay: float = 1.0
+
 var inf_dash : bool = false
 
 func set_game_paused(paused: bool):
